@@ -8,7 +8,7 @@ import { css } from "../../utils/csz";
 
 export const ReactCompnentsPage = async (state, params)=>{
 
-  console.log(state, params, typeof Prime.Button)
+  console.log(state, params)
 
   return cle.div({
 
