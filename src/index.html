@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Primecle</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" /><meta http-equiv="Pragma" content="no-cache" /><meta http-equiv="Expires" content="0" /> 
+    
+    <!-- Import Global Style -->
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+  <body> 
+    <!-- disable warnings and fix cle import inside .html-->
+    <script type="module"> import {CLE_FLAGS} from 'cle.js/lib'; CLE_FLAGS.LOG_WARNING_ENABLED = false; window.localImport=async what=>await import(what) </script>
+    
+    <!-- disable React Warning as Error  -->
+    <script type="module">const SUPPRESSED_ERRORS = ['Warning:']; const er = console.error; console.error = function filterWarnings(msg, ...args) {if (!SUPPRESSED_ERRORS.some((entry) => msg.startsWith(entry))) {er(msg, ...args);}};</script>
+
+    <!-- entrypoint -->
+    <script type="module" src="main.js"></script>
+
+  </body>
+</html>
