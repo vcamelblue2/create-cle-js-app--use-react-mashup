@@ -1,59 +1,71 @@
 {
-    "name": "primecle",
-    "version": "1.0.0",
-    "outputFormat": "esmodule",
-    "targets": {
-        "browser": {
-            "source": "src/index.html",
-            "distDir": "dist",
-            "outputFormat": "esmodule",
-            "includeNodeModules": true,
-            "optimize": true,
-            "sourceMap": false
-        }
-    },
-    "staticFiles": {
-        "staticPath": "src/static"
-    },
-    "scripts": {
-        "start": "parcel serve src/index.html -p 4200",
-        "build": "parcel build",
-        "test-build": "npx http-server ./dist/browser -p 4200 -c-1",
-        "predeploy": "rm -rf ./dist/browser && parcel build --public-url https://vcamelblue2.github.io/primecle/",
-        "deploy": "gh-pages -d ./dist/browser"
-    },
-    "dependencies": {
-        "cle.js": "~0.14.9",
-        "csz": "^1.2.0",    
-        "primeflex": "^3.3.0",
-        "primeicons": "^6.0.1",
-        "primereact": "^8.7.3",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0"
-    },
-    "devDependencies": {
-        "@parcel/resolver-glob": "^2.9.3",
-        "@parcel/transformer-inline-string": "^2.9.3",
-        "parcel": "~2.9.3",
-        "parcel-reporter-static-files-copy": "^1.5.0",
-        "process": "^0.11.10",
-        "gh-pages": "^5.0.0"
-    },
-    "browserslist": [
-        ">0.2%",
-        "not dead",
-        "not op_mini all"
-    ],
-    "babel": {
-        "presets": [
-            "@babel/preset-env"
-        ]
-    },
-    "terser": {
-        "mangle": {
-            "reserved": [
-                "$"
-            ]
-        }
+  "name": "primecle",
+  "version": "1.0.0",
+  "outputFormat": "esmodule",
+  "targets": {
+    "browser": {
+      "source": "src/index.html",
+      "distDir": "dist",
+      "outputFormat": "esmodule",
+      "includeNodeModules": true,
+      "optimize": true,
+      "sourceMap": false
     }
+  },
+  "staticFiles": {
+    "staticPath": "src/static"
+  },
+  "scripts": {
+    "start": "parcel serve src/index.html -p 4200",
+    "build": "parcel build",
+    "test-build": "npx http-server ./dist/browser -p 4200 -c-1",
+    "predeploy": "rm -rf ./dist/browser && parcel build --public-url https://vcamelblue2.github.io/primecle/",
+    "deploy": "gh-pages -d ./dist/browser",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "dependencies": {
+    "cle.js": "~0.14.9",
+    "csz": "^1.2.0",
+    "primeflex": "^3.3.0",
+    "primeicons": "^6.0.1",
+    "primereact": "^8.7.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@parcel/resolver-glob": "^2.9.3",
+    "@parcel/transformer-inline-string": "^2.9.3",
+    "@storybook/addon-essentials": "^7.1.1",
+    "@storybook/addon-interactions": "^7.1.1",
+    "@storybook/addon-links": "^7.1.1",
+    "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/blocks": "^7.1.1",
+    "@storybook/react": "^7.1.1",
+    "@storybook/react-vite": "^7.1.1",
+    "@storybook/testing-library": "^0.2.0",
+    "gh-pages": "^5.0.0",
+    "parcel": "~2.9.3",
+    "parcel-reporter-static-files-copy": "^1.5.0",
+    "process": "^0.11.10",
+    "prop-types": "^15.8.1",
+    "storybook": "^7.1.1"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
+  "terser": {
+    "mangle": {
+      "reserved": [
+        "$"
+      ]
+    }
+  }
 }
