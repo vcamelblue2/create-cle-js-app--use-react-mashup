@@ -7,6 +7,7 @@ import "./app/setup-mashup";
 
 import "./utils/csz.js"
 
+// Global DI 
 import "./app/global-di-components/**/*.js"
 import "./app/global-di-components/**/*.jsx"
 
