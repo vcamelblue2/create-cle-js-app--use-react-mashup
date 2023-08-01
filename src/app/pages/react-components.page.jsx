@@ -48,6 +48,7 @@ export const ReactCompnentsPage = async (state, params)=>{
         label: "Hi dev by a standard button",
       }),
 
+      // A Prime component by Cle DI (zero import use)
       { 'use-SmallButton': {
         label: "I am small (by cle DI)",
       }},
@@ -56,7 +57,12 @@ export const ReactCompnentsPage = async (state, params)=>{
         label: "I am very small (by cle DI)",
         onClick: $=>e=>console.log("very small btn clicked"),
         classNames: [css('font-size: 10px !important')]
-      }}
-    )
+      }},
+      
+      { 'use-SmallButton': { usedCleProps: ['theLabel'],
+        label: $ => "I am small (by cle DI) using props: " + $.theLabel,
+      }},
+    ),
+
   )
 }
