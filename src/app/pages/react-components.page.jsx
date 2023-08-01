@@ -3,7 +3,6 @@ import { Prime } from "../primereact.all";
 import { RC, RCF, RCDef } from "../generic-rc-wrapper";
 import { Router } from "cle.js/routing/lite_routing"
 
-import { ComponentsRegistry } from "cle.js/lib/caged-le";
 import { css } from "../../utils/csz";
 
 export const ReactCompnentsPage = async (state, params)=>{
@@ -13,7 +12,13 @@ export const ReactCompnentsPage = async (state, params)=>{
   return cle.div({
 
     // CLE variable
-    theLabel: "i'm the label"
+    theLabel: "i'm the label",
+
+    selectedCities: ['RM'],
+    cities: [     
+      {label: 'New York', value: 'NY'},
+      {label: 'Rome', value: 'RM'},
+    ]
     
   },
     { h2: "Showcase React Mashup components" },
@@ -47,7 +52,7 @@ export const ReactCompnentsPage = async (state, params)=>{
       RC(Prime.Button, { 
         label: "Hi dev by a standard button",
       }),
-
+      
       // A Prime component by Cle DI (zero import use)
       { 'use-SmallButton': {
         label: "I am small (by cle DI)",
@@ -63,6 +68,34 @@ export const ReactCompnentsPage = async (state, params)=>{
         label: $ => "I am small (by cle DI) using props: " + $.theLabel,
       }},
     ),
+
+    
+    cle.h4("Select City"),
+
+    cle.Row({ class: css("display: flex")},
+      
+      { 'use-Multiselect': { usedCleProps: ['selectedCities', 'cities'],
+        
+        options: $ => $.cities,
+        
+        selected: $ => $.selectedCities,
+        onSelectionChange: $ => e => $.selectedCities = e.value,
+
+        display: "chip",
+
+        className: css("width: 100%"),
+
+        extraDef: { style: "flex: 1" } // cle wrapper style
+      }},
+      
+      { 'use-SmallButton': { 
+        label: "Clear",
+        onClick: $ => e => $.selectedCities = []
+      }},
+    ),
+
+    cle.hr(),
+
 
   )
 }
