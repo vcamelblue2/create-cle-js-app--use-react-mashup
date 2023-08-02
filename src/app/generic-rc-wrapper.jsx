@@ -31,9 +31,9 @@ export const RC =
         const computedContent = Object.fromEntries(Object.entries(f).map(([k,v])=>[k, typeof v === 'function' ? v($) : v]))
 
         return childs.length === 0 ? 
-            <Component $={$} {...content} {...computedContent}></Component>
+            <Component $={()=>$} {...content} {...computedContent}></Component>
             :
-            <Component $={$} {...content} {...computedContent}>{...childs}</Component>
+            <Component $={()=>$} {...content} {...computedContent}>{...childs}</Component>
     }, ...useReactArgs)
 
 };

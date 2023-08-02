@@ -1,5 +1,6 @@
 import { cle } from "cle.js/lib"
 import { Prime } from "../primereact.all";
+import { UseReact } from 'cle.js/mashup/react/lib/react-in-cle.js';
 import { RC, RCF, RCDef } from "../generic-rc-wrapper";
 import { Router } from "cle.js/routing/lite_routing"
 
@@ -48,6 +49,10 @@ export const ReactCompnentsPage = async (state, params)=>{
     cle.div({ 
       class: [css("display: flex; align-items: center; gap: 10px")]
     },
+    
+      UseReact(({$})=>
+        <Prime.Button label={"Hi dev by a standard button"}/>
+      ),
 
       RC(Prime.Button, { 
         label: "Hi dev by a standard button",
@@ -61,7 +66,7 @@ export const ReactCompnentsPage = async (state, params)=>{
       { 'use-SmallButton': {
         label: "I am very small (by cle DI)",
         onClick: $=>e=>console.log("very small btn clicked"),
-        classNames: [css('font-size: 10px !important')]
+        className: css('font-size: 10px !important')
       }},
       
       { 'use-SmallButton': { usedCleProps: ['theLabel'],
