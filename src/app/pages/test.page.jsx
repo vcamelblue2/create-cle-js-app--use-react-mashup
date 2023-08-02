@@ -1,7 +1,10 @@
 import { cle } from "cle.js/lib"
 import { UseReact } from 'cle.js/mashup/react/lib/react-in-cle.js';
-import { CleButton } from "../components/manual-rc-wraps/button";
+
 import { RC, _ } from "../generic-rc-wrapper";
+
+import { CleButton } from "../components/manual-rc-wraps/button";
+import { UseMouseExample } from "../components/pure-rc/use-mouse-example";
 
 import {Button as pButton} from "primereact/button"
 import { InputText as pInputText} from "primereact/inputtext"
@@ -13,7 +16,8 @@ export const TestReactCompnentsPage = async (state, params)=>{
 
   return cle.div({
 
-    theLabel: "i'm the label"
+    theLabel: "i'm the label",
+    clicked: false
     
   },
     { h2: "Showcase components" },
@@ -24,8 +28,10 @@ export const TestReactCompnentsPage = async (state, params)=>{
     
 
     CleButton({label: "HI Dev"}),
-    CleButton({label: "HI Dev"}),
-    CleButton({label: "HI Dev"}),
+    CleButton({label: "HI Dev", size: 'small'}),
+    CleButton({label: "HI Dev", size: "large", f: { onClick: $=>e=>$.clicked = !$.clicked }}),
+    
+    { span: {meta: { if: $ => $.clicked }, style: "margin: 5px", text: "clicked!"}},
 
 
     _(_ => {
@@ -47,5 +53,7 @@ export const TestReactCompnentsPage = async (state, params)=>{
     RC(pButton, {label: "HI Dev"}),
     
     RC(pInputText, {f: {value: $=>$.theLabel, onInput: $=>e=>$.theLabel=e.target.value}, usedCleProps: ["theLabel"]}),
+
+    RC(UseMouseExample)
   )
 }
