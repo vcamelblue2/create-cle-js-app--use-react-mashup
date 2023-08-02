@@ -1,5 +1,5 @@
 {
-  "name": "primecle",
+  "name": "create-cleanjs-app--use-react-mashup",
   "version": "1.0.0",
   "outputFormat": "esmodule",
   "targets": {
@@ -19,7 +19,7 @@
     "start": "parcel serve src/index.html -p 4200",
     "build": "parcel build",
     "test-build": "npx http-server ./dist/browser -p 4200 -c-1",
-    "predeploy": "rm -rf ./dist/browser && parcel build --public-url https://vcamelblue2.github.io/primecle/",
+    "predeploy": "rm -rf ./dist/browser && parcel build --public-url https://vcamelblue2.github.io/create-cleanjs-app--use-react-mashup/",
     "deploy": "gh-pages -d ./dist/browser",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
