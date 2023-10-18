@@ -1,0 +1,116 @@
+<script> return [
+{ 
+
+  let: {
+    username: "user1",
+    react_btn_clicked: false,
+  },
+
+  on_le_secTimer_trigger: $ => {
+    console.log($.le.home.username, "seconds timer trigger")
+  },
+
+  css: [style.setup({})]
+
+},
+
+{ 
+  deps: { Timer: DepsInj.Timer, ...DepsInj }
+}]
+</script>
+
+<view>
+  <approot #id="home">
+      
+    <h1>Hello from Simple Component i'm {{@username}}</h1>
+    
+    <!-- html is not case sensitive, to handle camelCase use '-', and def will be converted in camelCase, es: secTimer -> sec-timer -->
+    <use-Timer #id="secTimer" [raw-def-interval]="1000" [raw-def-running]="true" [raw-def-trigger-on-start]="true"></use-Timer>
+    
+    <!-- OR DEFINE ALL IN RAW -->
+    <!-- <use-Timer #id="secTimer" [raw-defs]="({interval: 1000, running: true, triggerOnStart: true})"></use-Timer>  -->
+
+    <h3>Other components</h3>
+    <div class="flex-container spaced">
+      <div>
+        <h2>Title</h2>
+        <ol>
+          <li>Items</li>
+          <li>Items</li>
+          <li>Items</li>
+          <li>Items</li>
+        </ol>
+      </div>
+
+      <div 
+        [let-condition]="true" 
+        [style]="( $.condition === true ? 
+          {
+            background: 'green',
+            color: 'white'
+          } : {
+            background: 'red',
+            color: 'white'
+          })"
+
+        ha-style.width="200px"
+        ha-style.height="200px"
+
+        [ha-style.border]="($.condition ? 5 : 10 ) + 'px solid black'"
+        [ha-style.padding]="$.condition ? '25px' : '0px'"
+        
+        (onclick)="{ $.condition = !$.condition }"
+      >
+        I'm a rectangle! Click to change condition
+      </div>
+
+      <js-val>({ div: { 
+
+          condition: true,
+
+          a_style: $ => ( 
+            $.condition === true ? 
+            {
+              background: "green",
+              color: "white"
+            } : {
+              background: "red",
+              color: "white"
+            }
+          ),
+
+          "ha.style.width": "200px",
+          "ha.style.height": "200px",
+
+          "ha.style.border": $ => ($.condition ? 5 : 10 ) + "px solid black",
+          "ha.style.padding": $ => $.condition ? "25px" : "0px",
+
+          onclick: $=>{
+            $.condition = !$.condition
+          },
+
+          text: "I'm a rectangle! Click to change condition"
+
+        }})</js-val>
+
+    </div>
+
+    <use-SmallButton [raw-def-label]="'Look! A React Button!'" [raw-def-on-Click]="$=>e=>{console.log('clicked!!'); @react_btn_clicked = !@react_btn_clicked}"></use-SmallButton>
+    <h2 [meta-if]="@react_btn_clicked">
+      React Button Clicked! ({{@react_btn_clicked}})
+    </h2>
+
+  </approot>
+</view>
+
+<style>
+  .flex-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px
+  }
+  .spaced{
+    margin: 25px;
+  }
+</style>

@@ -30,7 +30,7 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "cle.js": "~0.14.9",
+    "cle.js": "~0.14.10",
     "csz": "^1.2.0",
 
     "primeflex": "^3.3.0",

@@ -3,22 +3,20 @@ import {LE_InitWebApp as InitWebApp} from 'cle.js/lib'
 import {InitRouter} from "cle.js/routing/lite_routing"
 
 // Mashup
-import "./app/setup-mashup";
-
-import "./utils/csz.js"
-
-// Global DI 
-import "./app/global-di-components/**/*.js"
-import "./app/global-di-components/**/*.jsx"
+import "./mashup/setup-mashup";
 
 // PrimeReact
 import "primereact/resources/themes/lara-light-indigo/theme.css";  //theme
 import "primereact/resources/primereact.min.css";                  //core css
 import "primeicons/primeicons.css";                                //icons
 
-// Pages
-import { ReactCompnentsPage } from './app/pages/react-components.page';
-import { TestReactCompnentsPage } from './app/pages/test.page';
+// Css in js
+import "./utils/csz.js"
+
+
+// Pages Routes
+import { ExampleModuleRoutes } from './modules/example-module/module.routes';
+// import { ModuleRoutes } from './modules/create-your-module-here/module.routes';
 
 
 InitWebApp(async ()=>{
@@ -26,11 +24,13 @@ InitWebApp(async ()=>{
   await InitRouter({
 
     pages: {
-      "/": ReactCompnentsPage,
-      "tests": TestReactCompnentsPage,
+      ...ExampleModuleRoutes,
+      // others module here
+      // ...ModuleRoutes,
     },
   
-    defaultRoute: "/"
+    defaultRoute: "/example-module"
+    // defaultRoute: "/"
   });
 
 })
