@@ -13,7 +13,7 @@
     }
   },
   "staticFiles": {
-    "staticPath": "src/static"
+    "staticPath": "src/public"
   },
   "scripts": {
     "start": "parcel serve src/index.html -p 4200",

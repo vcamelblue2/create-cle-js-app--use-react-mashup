@@ -1,6 +1,6 @@
 // import Clean.js
-import {LE_InitWebApp, cle} from 'cle.js/lib'
-import {InitRouter, Router, RedirectTo} from "cle.js/routing/lite_routing"
+import {LE_InitWebApp as InitWebApp} from 'cle.js/lib'
+import {InitRouter} from "cle.js/routing/lite_routing"
 
 // Mashup
 import "./app/setup-mashup";
@@ -21,7 +21,7 @@ import { ReactCompnentsPage } from './app/pages/react-components.page';
 import { TestReactCompnentsPage } from './app/pages/test.page';
 
 
-LE_InitWebApp(async ()=>{
+InitWebApp(async ()=>{
 
   await InitRouter({
 
