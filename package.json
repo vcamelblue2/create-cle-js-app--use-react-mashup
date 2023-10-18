@@ -17,25 +17,35 @@
   },
   "scripts": {
     "start": "parcel serve src/index.html -p 4200",
+    
     "build": "parcel build",
     "test-build": "npx http-server ./dist/browser -p 4200 -c-1",
+    
     "predeploy": "rm -rf ./dist/browser && parcel build --public-url https://vcamelblue2.github.io/create-cleanjs-app--use-react-mashup/",
     "deploy": "gh-pages -d ./dist/browser",
+    
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "cle.js": "~0.14.9",
     "csz": "^1.2.0",
+
     "primeflex": "^3.3.0",
     "primeicons": "^6.0.1",
-    "primereact": "^9.6.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "primereact": "^9.6.1"
   },
   "devDependencies": {
+    "process": "^0.11.10",
+    "parcel": "~2.9.3",
+    "parcel-reporter-static-files-copy": "^1.5.0",
     "@parcel/resolver-glob": "^2.9.3",
     "@parcel/transformer-inline-string": "^2.9.3",
+
+    "storybook": "^7.1.1",
+    "prop-types": "^15.8.1",
     "@storybook/addon-essentials": "^7.1.1",
     "@storybook/addon-interactions": "^7.1.1",
     "@storybook/addon-links": "^7.1.1",
@@ -44,12 +54,8 @@
     "@storybook/react": "^7.1.1",
     "@storybook/react-vite": "^7.1.1",
     "@storybook/testing-library": "^0.2.0",
-    "gh-pages": "^5.0.0",
-    "parcel": "~2.9.3",
-    "parcel-reporter-static-files-copy": "^1.5.0",
-    "process": "^0.11.10",
-    "prop-types": "^15.8.1",
-    "storybook": "^7.1.1"
+    
+    "gh-pages": "^5.0.0"
   },
   "browserslist": [
     ">0.2%",
