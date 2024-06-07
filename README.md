@@ -1,9 +1,9 @@
-# Clean.js React Mashup Example - Clean.js Framework
+# Cle.js React Mashup Example - Clever Js Framework
 
-This project was generated with cle apps template, it's a template for Clean.js - React Mashup.
+This project was generated with cle apps template, it's a template for Cle.js - React Mashup.
 Preconfigured to work with PrimeReact and Storybook.
 
-Read more on [Clean.js Readme](https://github.com/vcamelblue2/Clean.js#readme).
+Read more on [Cle.js Readme](https://github.com/vcamelblue2/Cle.js#readme).
 
 Install the project:
 ```sh

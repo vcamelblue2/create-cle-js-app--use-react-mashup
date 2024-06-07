@@ -1,4 +1,4 @@
-// import Clean.js
+// import Cle.js
 import {LE_InitWebApp as InitWebApp} from 'cle.js/lib'
 import {InitRouter} from "cle.js/routing/lite_routing"
 
